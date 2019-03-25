@@ -1,11 +1,10 @@
 /* eslint-disable react/prefer-stateless-function */
 
 import React, { Component, Fragment } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Toggle from './ToggleRPC';
-import Portal from './Portal';
-import Modal from './Modal';
+import { Modal } from 'Elements';
+import { Toggle } from 'Utilities';
+import logo from './logo.svg';
 
 class App extends Component {
   render() {
