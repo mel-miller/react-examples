@@ -1,27 +1,28 @@
 /* eslint-disable react/prefer-stateless-function */
+/* eslint-disable react/prop-types */
 
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Portal from './Portal';
 
-
-class Modal extends Component {
+export default class Modal extends Component {
   render() {
     const { children, toggle, on } = this.props;
     return (
       <Portal>
         {on && (
-        <ModalWrapper>
-          <button type="button" onClick={toggle}>Close</button>
-          <div>{children}</div>
-        </ModalWrapper>
+          <ModalWrapper>
+            <ModalCard>
+              <CloseButton type="button" onClick={toggle}>Close</CloseButton>
+              <div>{children}</div>
+            </ModalCard>
+            <Background onClick={toggle} />
+          </ModalWrapper>
         )}
       </Portal>
     );
   }
 }
-
-export default Modal;
 
 const ModalWrapper = styled.div`
   position: absolute;
@@ -29,5 +30,34 @@ const ModalWrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: aqua;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ModalCard = styled.div`
+  position: relative;
+  z-index: 9;
+  background: white;
+  border-radius: 5px;
+  padding: 15px;
+  min-width: 300px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  margin-bottom: 100px;
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
+const Background = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  opacity: 0.6;
 `;
