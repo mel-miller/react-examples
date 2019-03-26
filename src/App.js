@@ -16,7 +16,9 @@ class App extends Component {
         <Toggle>
           {({ on, toggle }) => (
             <Fragment>
-              <button type="button" onClick={toggle}>Login</button>
+              <button type="button" onClick={toggle}>
+                Login
+              </button>
               <Modal on={on} toggle={toggle}>
                 <h2>Still in Modal</h2>
               </Modal>
